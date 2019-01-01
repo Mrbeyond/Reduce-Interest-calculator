@@ -1,14 +1,14 @@
 @media screen and (min-width: 992px){
-		#cont{
+	/*	#cont{
 			display: -webkit-flex;
 			display: -moz-flex;
 			display: flex;
 			width: 100%;
-			height: auto;}
+			height: auto;}*/
 
 		#item1{
 			width: 50%;
-			background-color: #337aff;
+			background-color: #0c5eb5;
 			height: auto;
 			color: white;
 			box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);
@@ -16,7 +16,7 @@
 
 		#item2{
 			width: 50%;
-			background-color: #337aff;
+			background-color: #0c5eb5;
 			height: auto;
 			color: white;
 			box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);			
@@ -24,8 +24,9 @@
 			display:none;}
 
 			h1{
-				background-color: orange;
-				text-align: center;}
+				background-color: #0c5eb5;
+				text-align: center;
+				color: white;}
 
 			label{
 				font-size: 120%;
@@ -46,7 +47,7 @@
 				margin-left: 6px;}
 
 			button{
-					margin-left: 35%;
+					text-align: center;
 					width: 150px;
 					height: 30px;
 					font-size: 115%;}
@@ -71,7 +72,7 @@
 
 @media screen and (max-width: 992px){
 		#item1{
-			background-color: #337aff;
+			background-color: #0c5eb5;
 			height: auto;
 			color: white;
 			box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);			
@@ -79,7 +80,7 @@
 			border:5px solid white;}
 
 		#item2{
-			background-color: #337aff;
+			background-color: #0c5eb5;
 			height: auto;
 			color: white;
 			margin-top: 17px;
@@ -89,8 +90,9 @@
 			display:none;}
 
 			h1{
-				background-color: orange;
-				text-align: center;}
+				background-color: #0c5eb5;
+				text-align: center;
+				color: white;}
 
 			label{
 				font-size: 120%;}
