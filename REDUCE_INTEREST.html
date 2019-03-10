@@ -23,7 +23,7 @@
 			height: auto;
 			color: white;
 			border:5px solid white;
-			display: ;}
+			display:none;}
 
 			h1{
 				background-color: orange;
@@ -32,6 +32,7 @@
 			label{
 				font-size: 120%;
 				margin-left: 20px;}
+
 			input{
 				width: 80%;
 				height: 25px;
@@ -40,17 +41,32 @@
 				font-size: 115%;
 				margin-left: 10px;
 				color: green;
-				border:1px solid green;
-			}
-			span{font-size: 160%;
+				border:2px solid #906000;}
+
+			span{
+				font-size: 160%;
 				margin-left: 6px;}
-			button{margin-left: 35%;
+
+			button{
+					margin-left: 35%;
 					width: 150px;
 					height: 30px;
 					font-size: 115%;}
+			#temhd{
+				display: none;}
+
 			#detem{
 					font-size: 120%;
 					margin-left: 6px;}
+
+			#obal{
+					font-size: 120%;
+					text-align: center;}
+
+			#paytem{
+					display: none;
+					font-size: 120%;
+					text-align: center;}
 
 	</style>
 </head>
@@ -67,24 +83,25 @@
 			<label>Interest Rate</label><br>
 			<input type="number" title="Interest Rate" id="int"><span>%</span><br><br>
 			<button onclick="proceed()">Proceed</button><br><br>
-			<div id="temhd"  style="display: none;">
+			<div id="temhd">
 				<div id="detem"></div><br>
-				<button>Make Payment</button><br><br>
+				<button  onclick="makepay()">Make Payment</button><br><br>
 			</div>
 		</div>
-		<div id="item2" >
+		<div id="item2">
 			<br>
+			<div id="obal"></div>
 			<label>Payment Amount</label><br>
-			<input type="number" title="Amount"><br>
-			<button>Pay Now</button><br><br>
-			<div id="pytem" style="display: none;"></div><br><br>
-			<button>Print</button>
+			<input type="number" title="Amount" id="pamount"><br>
+			<button onclick="paybal()">Pay Now</button><br><br>
+			<div id="paytem"></div><br><br>
+			<button onclick="prnt()">Print</button>
 		</div>
 	</div>
 	<script type="text/javascript">
 			fn.focus();
 		function proceed(){ 
-		if (fn.value=="" || ln.value==""|| la.value=="" || int.value==""){alert("Please fill all the form to proceed")}
+		if (fn.value=="" || ln.value==""|| la.value=="" || int.value==""){alert("Please fill all the form to proceed"); fn.focus();}
 
 		else{
 		if(la.value<=0 || int.value<=0){alert("Please enter a valid number in both Loan Amount and Reduce Interest to proceed");
@@ -93,12 +110,30 @@
 		  else {
 			document.getElementById("temhd").style.display="block";
 			document.getElementById("detem").innerHTML =
-			fn.value +" "+ ln.value+", " +"you have been granted a loan of" +" "+"#"+la.value+" "+"with  a reduce interest of"+" "+int.value+"%.";
-		}}
+			fn.value +" "+ ln.value+", " +"you have been granted a loan of" +" "+"#"+la.value+" "+"with  a reduce interest of"+" "+int.value+"%." +"<br>" +"Do you wish to make a payment now? Please click on Make Payment below.";}}
+						}
 
+			var	intcal="";
+			var	balance="";
 
+		function makepay(){document.getElementById("item2").style.display="block";
+				 intcal= parseFloat(la.value)+parseFloat(la.value*int.value/100);
+				document.getElementById("obal").innerHTML =  fn.value +" "+ ln.value +", " +"your balance is"+" "+"#"+intcal +" "
+				+"at the interest rate of"+" "+int.value+"%"; pamount.focus();
+						}
 
-		}
+		function paybal(){ 
+			if(pamount.value<=0 || pamount.value==""){
+				document.getElementById("paytem").style.display="none";
+				 alert("Please enter a valid Amount");  pamount.focus();}
+			 else{
+			 	document.getElementById("paytem").style.display="block";
+			 	 balance= parseFloat(parseFloat(intcal)- parseFloat(pamount.value));
+			 	document.getElementById("paytem").innerHTML =  "Your Payment was #"+pamount.value+" and your balance is "+balance;   }
+			 	 				}
+			function prnt() {
+				window.print();}
+
 	</script>
 </body>
 </html>
