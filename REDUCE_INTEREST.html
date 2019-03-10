@@ -74,6 +74,7 @@
 	<h1>REDUCE INTEREST FLOW ANALYZER</h1>
 	<div id="cont">
 		<div id="item1">
+			<div id="frm">
 			<label>First Name</label><br>
 			<input type="text" title="First Name" id="fn"><br>
 			<label>Last Name</label><br>
@@ -82,7 +83,8 @@
 			<input type="number" title="Loan Amount" id="la"><br>
 			<label>Interest Rate</label><br>
 			<input type="number" title="Interest Rate" id="int"><span>%</span><br><br>
-			<button onclick="proceed()">Proceed</button><br><br>
+			</div>
+			<button onclick="proceed()"  id="proc">Proceed</button><br><br>
 			<div id="temhd">
 				<div id="detem"></div><br>
 				<button  onclick="makepay()">Make Payment</button><br><br>
@@ -100,6 +102,7 @@
 	</div>
 	<script type="text/javascript">
 			fn.focus();
+			var bkk= document.getElementById("proc");
 		function proceed(){ 
 		if (fn.value=="" || ln.value==""|| la.value=="" || int.value==""){alert("Please fill all the form to proceed"); fn.focus();}
 
@@ -107,30 +110,47 @@
 		if(la.value<=0 || int.value<=0){alert("Please enter a valid number in both Loan Amount and Reduce Interest to proceed");
 			document.getElementById("temhd").style.display="none"; la.focus();}
 
-		  else {
+		  else { if (bkk.innerHTML=="Back") { 
+		  	 document.getElementById("frm").style.display="block";  bkk.innerHTML="Proceed";
+		  	  document.getElementById("item2").style.display="none"; document.getElementById("temhd").style.display="none"; }
+
+		  	else{ if(bkk.innerHTML="Proceed"){
+		  		bkk.innerHTML="Back"
+			document.getElementById("frm").style.display="none";		  	
 			document.getElementById("temhd").style.display="block";
 			document.getElementById("detem").innerHTML =
-			fn.value +" "+ ln.value+", " +"you have been granted a loan of" +" "+"#"+la.value+" "+"with  a reduce interest of"+" "+int.value+"%." +"<br>" +"Do you wish to make a payment now? Please click on Make Payment below.";}}
-						}
+			"Dear "+ fn.value +" "+ ln.value+", "+"<br>" +"&nbsp; &nbsp; &nbsp;You have been granted a loan of" +" "+"N"+la.value+" "+"with  a reduce interest of"+" "+int.value+"%." +"<br>" +"&nbsp; &nbsp; &nbsp; Do you wish to make a payment now? Please click on Make Payment below.";}}
+				}		}		}
 
-			var	intcal="";
-			var	balance="";
-
+			var	intcal="", balance="", m;
 		function makepay(){document.getElementById("item2").style.display="block";
 				 intcal= parseFloat(la.value)+parseFloat(la.value*int.value/100);
-				document.getElementById("obal").innerHTML =  fn.value +" "+ ln.value +", " +"your balance is"+" "+"#"+intcal +" "
+				document.getElementById("obal").innerHTML =  fn.value +" "+ ln.value +", " +"your balance is"+" "+"N"+intcal +" "
 				+"at the interest rate of"+" "+int.value+"%"; pamount.focus();
+				m=intcal; 
 						}
 
-		function paybal(){ 
+		function paybal(){
+			pamount.focus();
+			//var abb=true; 
 			if(pamount.value<=0 || pamount.value==""){
-				document.getElementById("paytem").style.display="none";
-				 alert("Please enter a valid Amount");  pamount.focus();}
-			 else{
+				 alert("Please enter a valid Amount");
+				document.getElementById("paytem").style.display="none";}
+
+		    if(m < pamount.value){
+		    	 document.getElementById("paytem").style.display="none";
+				 alert("Please Amount you want to pay is more than the amount you owe");}
+
+			if(pamount.value == m) {
+				document.getElementById("paytem").style.display="block";
+				 document.getElementById("paytem").innerHTML ="Congratulations! You have paid your loan fully. Thanks for doing business with us."}
+
+		    else if( m > pamount){
 			 	document.getElementById("paytem").style.display="block";
-			 	 balance= parseFloat(parseFloat(intcal)- parseFloat(pamount.value));
-			 	document.getElementById("paytem").innerHTML =  "Your Payment was #"+pamount.value+" and your balance is "+balance;   }
-			 	 				}
+			 	 balance = parseFloat(parseFloat(m)- parseFloat(pamount.value));
+			 	document.getElementById("paytem").innerHTML =  "Your Payment was N"+pamount.value+" and your new balance is "+balance; } 
+			 	 }	
+
 			function prnt() {
 				window.print();}
 
