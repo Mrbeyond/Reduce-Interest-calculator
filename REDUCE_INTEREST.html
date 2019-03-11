@@ -125,7 +125,7 @@
 			var	intcal="", balance="", m;
 		function makepay(){document.getElementById("item2").style.display="block";
 				 intcal= parseFloat(la.value)+parseFloat(la.value*int.value/100);
-				document.getElementById("obal").innerHTML =  fn.value +" "+ ln.value +", " +"your balance is"+" "+"N"+intcal +" "
+				document.getElementById("obal").innerHTML = "Dear"+fn.value +" "+ ln.value +", " +"your balance is"+" "+"N"+intcal +" "
 				+"at the interest rate of"+" "+int.value+"%"; pamount.focus();
 				m=intcal; 
 						}
@@ -145,11 +145,13 @@
 				document.getElementById("paytem").style.display="block";
 				 document.getElementById("paytem").innerHTML ="Congratulations! You have paid your loan fully. Thanks for doing business with us."}
 
-		    else if( m > pamount){
+		    else if( m > pamount.value && pamount.value!="" && pamount.value>0  ){
 			 	document.getElementById("paytem").style.display="block";
 			 	 balance = parseFloat(parseFloat(m)- parseFloat(pamount.value));
 			 	document.getElementById("paytem").innerHTML =  "Your Payment was N"+pamount.value+" and your new balance is "+balance; } 
-			 	 }	
+			 	 }
+
+			 	
 
 			function prnt() {
 				window.print();}
