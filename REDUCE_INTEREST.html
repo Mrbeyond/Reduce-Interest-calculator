@@ -1,77 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<title>REDUCE INTEREST</title>
-	<style type="text/css">
-		#cont{
-			display: -webkit-flex;
-			display: -moz-flex;
-			display: flex;
-			width: 100%;
-			height: auto;}
-
-		#item1{
-			width: 50%;
-			background-color: #337aff;
-			height: auto;
-			color: white;
-			border:5px solid white;}
-
-		#item2{
-			width: 50%;
-			background-color: #337aff;
-			height: auto;
-			color: white;
-			border:5px solid white;
-			display:none;}
-
-			h1{
-				background-color: orange;
-				text-align: center;}
-
-			label{
-				font-size: 120%;
-				margin-left: 20px;}
-
-			input{
-				width: 80%;
-				height: 25px;
-				border-radius: 10px;
-				line-height: 25px;
-				font-size: 115%;
-				margin-left: 10px;
-				color: green;
-				border:2px solid #906000;}
-
-			span{
-				font-size: 160%;
-				margin-left: 6px;}
-
-			button{
-					margin-left: 35%;
-					width: 150px;
-					height: 30px;
-					font-size: 115%;}
-			#temhd{
-				display: none;}
-
-			#detem{
-					font-size: 120%;
-					margin-left: 6px;}
-
-			#obal{
-					font-size: 120%;
-					text-align: center;}
-
-			#paytem{
-					display: none;
-					font-size: 120%;
-					text-align: center;}
-
-	</style>
+<link rel="stylesheet" type="text/css" href="interest.css">
 </head>
 <body>
 	<h1>REDUCE INTEREST FLOW ANALYZER</h1>
+	<center>
 	<div id="cont">
 		<div id="item1">
 			<div id="frm">
@@ -94,12 +31,12 @@
 			<br>
 			<div id="obal"></div>
 			<label>Payment Amount</label><br>
-			<input type="number" title="Amount" id="pamount"><br>
+			<input type="number" title="Amount" id="pamount" onkeyup="seep()"><br>
 			<button onclick="paybal()">Pay Now</button><br><br>
 			<div id="paytem"></div><br><br>
-			<button onclick="prnt()">Print</button>
+			<button id="prnt" style="display: none;" onclick="prnt()">Print</button>
 		</div>
-	</div>
+	</div></center>
 	<script type="text/javascript">
 			fn.focus();
 			var bkk= document.getElementById("proc");
@@ -111,7 +48,7 @@
 			document.getElementById("temhd").style.display="none"; la.focus();}
 
 		  else { if (bkk.innerHTML=="Back") { 
-		  	 document.getElementById("frm").style.display="block";  bkk.innerHTML="Proceed";
+		  	 document.getElementById("frm").style.display="block";  bkk.innerHTML="Proceed"; pamount.value=""; paytem.innerHTML=""; document.getElementById("prnt").style.display="none";
 		  	  document.getElementById("item2").style.display="none"; document.getElementById("temhd").style.display="none"; }
 
 		  	else{ if(bkk.innerHTML="Proceed"){
@@ -125,7 +62,7 @@
 			var	intcal="", balance="", m;
 		function makepay(){document.getElementById("item2").style.display="block";
 				 intcal= parseFloat(la.value)+parseFloat(la.value*int.value/100);
-				document.getElementById("obal").innerHTML = "Dear"+fn.value +" "+ ln.value +", " +"your balance is"+" "+"N"+intcal +" "
+				document.getElementById("obal").innerHTML = "Dear "+fn.value +" "+ ln.value +", " +"your balance is"+" "+"N"+intcal +" "
 				+"at the interest rate of"+" "+int.value+"%"; pamount.focus();
 				m=intcal; 
 						}
@@ -139,6 +76,7 @@
 
 		    if(m < pamount.value){
 		    	 document.getElementById("paytem").style.display="none";
+		    	 pamount.focus();
 				 alert("Please Amount you want to pay is more than the amount you owe");}
 
 			if(pamount.value == m) {
@@ -148,8 +86,18 @@
 		    else if( m > pamount.value && pamount.value!="" && pamount.value>0  ){
 			 	document.getElementById("paytem").style.display="block";
 			 	 balance = parseFloat(parseFloat(m)- parseFloat(pamount.value));
-			 	document.getElementById("paytem").innerHTML =  "Your Payment was N"+pamount.value+" and your new balance is "+balance; } 
+			 	document.getElementById("paytem").innerHTML =  "Your Payment was N"+pamount.value+" and your new balance is "+balance;
+			 	document.getElementById("prnt").style.display="block"; } 
 			 	 }
+
+		function seep(){
+			if(m < pamount.value){ 
+				pamount.style.color="red";
+			} else {
+				pamount.style.color="green";
+
+			} 
+		}	 	 
 
 			 	
 

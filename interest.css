@@ -1,0 +1,126 @@
+@media screen and (min-width: 992px){
+		#cont{
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: flex;
+			width: 100%;
+			height: auto;}
+
+		#item1{
+			width: 50%;
+			background-color: #337aff;
+			height: auto;
+			color: white;
+			box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);
+			border:5px solid white;}
+
+		#item2{
+			width: 50%;
+			background-color: #337aff;
+			height: auto;
+			color: white;
+			box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);			
+			border:5px solid white;
+			display:none;}
+
+			h1{
+				background-color: orange;
+				text-align: center;}
+
+			label{
+				font-size: 120%;
+				margin-left: 20px;}
+
+			input{
+				width: 80%;
+				height: 25px;
+				border-radius: 10px;
+				line-height: 25px;
+				font-size: 115%;
+				margin-left: 10px;
+				color: green;
+				border:2px solid #906000;}
+
+			span{
+				font-size: 160%;
+				margin-left: 6px;}
+
+			button{
+					margin-left: 35%;
+					width: 150px;
+					height: 30px;
+					font-size: 115%;}
+			#temhd{
+				display: none;}
+
+			#detem{
+					font-size: 120%;
+					margin-left: 6px;}
+
+			#obal{
+					font-size: 120%;
+					text-align: center;}
+
+			#paytem{
+					display: none;
+					font-size: 120%;
+					text-align: center;}
+				}
+
+
+
+@media screen and (max-width: 992px){
+		#item1{
+			background-color: #337aff;
+			height: auto;
+			color: white;
+			box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);			
+			outline: 2px inset; 
+			border:5px solid white;}
+
+		#item2{
+			background-color: #337aff;
+			height: auto;
+			color: white;
+			margin-top: 17px;
+			box-shadow: 0 10px 20px 0 rgba(0,0,0,0.5);			
+			outline: 2px outset; 			
+			border:5px solid white;
+			display:none;}
+
+			h1{
+				background-color: orange;
+				text-align: center;}
+
+			label{
+				font-size: 120%;}
+
+			input{
+				width: 80%;
+				height: 25px;
+				border-radius: 10px;
+				line-height: 25px;
+				font-size: 115%;
+				color: green;
+				border:2px solid #906000;}
+
+			span{font-size: 160%;}
+
+			button{
+					width: 150px;
+					height: 30px;
+					font-size: 115%;}
+			#temhd{
+				display: none;}
+
+			#detem{	font-size: 120%;}
+
+			#obal{
+					font-size: 120%;
+					text-align: center;}
+
+			#paytem{
+					display: none;
+					font-size: 120%;
+					text-align: center;}
+				}
