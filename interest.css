@@ -1,4 +1,4 @@
-@media screen and (min-width: 992px){
+@media screen and (min-width: 1200px){
 	/*	#cont{
 			display: -webkit-flex;
 			display: -moz-flex;
@@ -7,7 +7,7 @@
 			height: auto;}*/
 
 		#item1{
-			width: 50%;
+			width: 60%;
 			background-color: #0c5eb5;
 			height: auto;
 			color: white;
@@ -15,7 +15,7 @@
 			border:5px solid white;}
 
 		#item2{
-			width: 50%;
+			width: 60%;
 			background-color: #0c5eb5;
 			height: auto;
 			color: white;
@@ -70,7 +70,7 @@
 
 
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 1200px){
 		#item1{
 			background-color: #0c5eb5;
 			height: auto;
@@ -98,7 +98,7 @@
 				font-size: 120%;}
 
 			input{
-				width: 80%;
+				width: 70%;
 				height: 25px;
 				border-radius: 10px;
 				line-height: 25px;
@@ -109,7 +109,8 @@
 			span{font-size: 160%;}
 
 			button{
-					width: 150px;
+					max-width: 200px;
+					margin:10px auto  0;
 					height: 30px;
 					font-size: 115%;}
 			#temhd{
